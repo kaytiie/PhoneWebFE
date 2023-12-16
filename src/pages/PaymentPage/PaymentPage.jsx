@@ -147,7 +147,7 @@ const PaymentPage = () => {
         arrayOrdered.push(element.product)
       });
       dispatch(removeAllOrderProduct({ listChecked: arrayOrdered }))
-      message.success('Đặt hàng thành công')
+      message.success('Đặt hàng thành công!!!!')
       navigate('/orderSuccess', {
         state: {
           delivery,
@@ -158,6 +158,7 @@ const PaymentPage = () => {
       })
     } else if (isError) {
       message.success('Đặt hàng thành công')
+      navigate('/')
     }
   }, [isSuccess, isError])
 

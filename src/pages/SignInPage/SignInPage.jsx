@@ -162,7 +162,7 @@ const SignInPage = () => {
         </WrapperContainerRight>
       </div>
       {/* Container để hiển thị thông báo */}
-      {showModal && <CustomModal message={modalMessage} />}
+      {/* {showModal && <CustomModal message={modalMessage} />} */}
     </div >
   )
 }
