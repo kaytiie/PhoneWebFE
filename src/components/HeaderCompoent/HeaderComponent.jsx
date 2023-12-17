@@ -157,20 +157,51 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
               )}
             </WrapperHeaderAccout>
           </Loading>
-          {!isHiddenCart && (
-            <div onClick={() => navigate('/order')} style={{ cursor: 'pointer' }}>
-              <Badge count={order?.orderItems?.length} size="small">
-                <ShoppingCartOutlined style={{ fontSize: '30px', color: '#fff' }} />
-              </Badge>
-              <WrapperTextHeaderSmall>Giỏ hàng</WrapperTextHeaderSmall>
-            </div>
+          {user?.access_token ? (
+            <span>
+              {!isHiddenCart && (
+                <div onClick={() => navigate('/order')} style={{ cursor: 'pointer' }}>
+                  <Badge count={order?.orderItems?.length} size="small">
+                    <ShoppingCartOutlined style={{ fontSize: '30px', color: '#fff' }} />
+                  </Badge>
+                  <WrapperTextHeaderSmall>Giỏ hàng</WrapperTextHeaderSmall>
+                </div>
+              )}
 
-          )}
+            </span>
+          ) : (
+            <span>
+              {!isHiddenCart && (
+                <div onClick={() => navigate('/sign-in')} style={{ cursor: 'pointer' }}>
+                  <Badge count={order?.orderItems?.length} size="small">
+                    <ShoppingCartOutlined style={{ fontSize: '30px', color: '#fff' }} />
+                  </Badge>
+                  <WrapperTextHeaderSmall>Giỏ hàng</WrapperTextHeaderSmall>
+                </div>
+              )}
+
+            </span>
+          )
+          }
           <span>
-            <div onClick={() => navigate('/chatpage')} style={{ cursor: 'pointer' }}>
-              <WechatOutlined style={{ fontSize: '30px', color: '#fff' }} />
-              <WrapperTextHeaderSmall>Thảo luận</WrapperTextHeaderSmall>
-            </div>
+            {
+              user?.isAdmin ? (
+                <div onClick={() => navigate('/chatpageadmin')} style={{ cursor: 'pointer' }}>
+                  <WechatOutlined style={{ fontSize: '30px', color: '#fff' }} />
+                  <WrapperTextHeaderSmall>Hỗ trợ</WrapperTextHeaderSmall>
+                </div>
+              ) : user?.access_token ? (
+                <div onClick={() => navigate('/chatpage')} style={{ cursor: 'pointer' }}>
+                  <WechatOutlined style={{ fontSize: '30px', color: '#fff' }} />
+                  <WrapperTextHeaderSmall>Hỗ trợ</WrapperTextHeaderSmall>
+                </div>
+              ) : (
+                <div onClick={() => navigate('/sign-in')} style={{ cursor: 'pointer' }}>
+                  <WechatOutlined style={{ fontSize: '30px', color: '#fff' }} />
+                  <WrapperTextHeaderSmall>Hỗ trợ</WrapperTextHeaderSmall>
+                </div>
+              )
+            }
 
           </span>
           <span>
