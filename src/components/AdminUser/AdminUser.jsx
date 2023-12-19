@@ -210,25 +210,22 @@ const AdminUser = () => {
 
   const columns = [
     {
-      title: 'Name',
+      title: 'Tên người dùng',
       dataIndex: 'name',
-      sorter: (a, b) => a.name.length - b.name.length,
-      ...getColumnSearchProps('name')
+
     },
     {
       title: 'Email',
       dataIndex: 'email',
-      sorter: (a, b) => a.email.length - b.email.length,
-      ...getColumnSearchProps('email')
+
     },
     {
-      title: 'Address',
+      title: 'Địa chỉ',
       dataIndex: 'address',
-      sorter: (a, b) => a.address.length - b.address.length,
-      ...getColumnSearchProps('address')
+
     },
     {
-      title: 'Admin',
+      title: 'Quản lý ',
       dataIndex: 'isAdmin',
       filters: [
         {
@@ -242,13 +239,12 @@ const AdminUser = () => {
       ],
     },
     {
-      title: 'Phone',
+      title: 'Số điên thoại',
       dataIndex: 'phone',
-      sorter: (a, b) => a.phone - b.phone,
-      ...getColumnSearchProps('phone')
+
     },
     {
-      title: 'Action',
+      title: 'Tùy chỉnh',
       dataIndex: 'action',
       render: renderAction
     },
@@ -343,7 +339,7 @@ const AdminUser = () => {
           };
         }} />
       </div>
-      <DrawerComponent title='Chi tiết người dùng' isOpen={isOpenDrawer} onClose={() => setIsOpenDrawer(false)} width="90%">
+      <DrawerComponent title='Chỉnh sửa thông tin người dùng' isOpen={isOpenDrawer} onClose={() => setIsOpenDrawer(false)} width="90%">
         <Loading isLoading={isLoadingUpdate || isLoadingUpdated}>
 
           <Form
@@ -355,9 +351,9 @@ const AdminUser = () => {
             form={form}
           >
             <Form.Item
-              label="Name"
+              label="Tên người dùng"
               name="name"
-              rules={[{ required: true, message: 'Please input your name!' }]}
+              rules={[{ required: true, message: 'Hãy nhập tên!' }]}
             >
               <InputComponent value={stateUserDetails['name']} onChange={handleOnchangeDetails} name="name" />
             </Form.Item>
@@ -365,30 +361,30 @@ const AdminUser = () => {
             <Form.Item
               label="Email"
               name="email"
-              rules={[{ required: true, message: 'Please input your email!' }]}
+              rules={[{ required: true, message: 'Hãy nhập email!' }]}
             >
               <InputComponent value={stateUserDetails['email']} onChange={handleOnchangeDetails} name="email" />
             </Form.Item>
             <Form.Item
-              label="Phone"
+              label="Số điện thoại"
               name="phone"
-              rules={[{ required: true, message: 'Please input your  phone!' }]}
+              rules={[{ required: true, message: 'Hãy nhập số điện thoại!' }]}
             >
               <InputComponent value={stateUserDetails.phone} onChange={handleOnchangeDetails} name="phone" />
             </Form.Item>
 
             <Form.Item
-              label="Adress"
+              label="Địa chỉ"
               name="address"
-              rules={[{ required: true, message: 'Please input your  address!' }]}
+              rules={[{ required: true, message: 'Hãy nhập địa chỉ!' }]}
             >
               <InputComponent value={stateUserDetails.address} onChange={handleOnchangeDetails} name="address" />
             </Form.Item>
 
             <Form.Item
-              label="Avatar"
+              label="Ảnh đại diện"
               name="avatar"
-              rules={[{ required: true, message: 'Please input your image!' }]}
+              rules={[{ required: false, message: 'Hãy cập nhật ảnh!' }]}
             >
               <WrapperUploadFile onChange={handleOnchangeAvatarDetails} maxCount={1}>
                 <Button >Select File</Button>
@@ -405,7 +401,7 @@ const AdminUser = () => {
             </Form.Item>
             <Form.Item wrapperCol={{ offset: 20, span: 16 }}>
               <Button type="primary" htmlType="submit">
-                Apply
+                Cập nhật
               </Button>
             </Form.Item>
           </Form>

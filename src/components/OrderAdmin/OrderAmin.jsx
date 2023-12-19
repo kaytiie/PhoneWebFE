@@ -105,43 +105,43 @@ const OrderAdmin = () => {
 
   const columns = [
     {
-      title: 'User name',
+      title: 'Tên người dùng',
       dataIndex: 'userName',
       sorter: (a, b) => a.userName.length - b.userName.length,
       ...getColumnSearchProps('userName')
     },
     {
-      title: 'Phone',
+      title: 'Số điện thoại',
       dataIndex: 'phone',
       sorter: (a, b) => a.phone.length - b.phone.length,
       ...getColumnSearchProps('phone')
     },
     {
-      title: 'Address',
+      title: 'Địa chỉ',
       dataIndex: 'address',
       sorter: (a, b) => a.address.length - b.address.length,
       ...getColumnSearchProps('address')
     },
     {
-      title: 'Paided',
+      title: 'Đã thanh toán',
       dataIndex: 'isPaid',
       sorter: (a, b) => a.isPaid.length - b.isPaid.length,
       ...getColumnSearchProps('isPaid')
     },
     {
-      title: 'Shipped',
+      title: 'Đã giao hàng',
       dataIndex: 'isDelivered',
       sorter: (a, b) => a.isDelivered.length - b.isDelivered.length,
       ...getColumnSearchProps('isDelivered')
     },
     {
-      title: 'Payment method',
+      title: 'Phương thức thanh toán',
       dataIndex: 'paymentMethod',
       sorter: (a, b) => a.paymentMethod.length - b.paymentMethod.length,
       ...getColumnSearchProps('paymentMethod')
     },
     {
-      title: 'Total price',
+      title: 'Tống tiền thanh toán',
       dataIndex: 'totalPrice',
       sorter: (a, b) => a.totalPrice.length - b.totalPrice.length,
       ...getColumnSearchProps('totalPrice')
@@ -150,17 +150,17 @@ const OrderAdmin = () => {
 
   const dataTable = orders?.data?.length && orders?.data?.map((order) => {
     console.log('usewr', order)
-    return { ...order, key: order._id, userName: order?.shippingAddress?.fullName, phone: order?.shippingAddress?.phone, address: order?.shippingAddress?.address, paymentMethod: orderContant.payment[order?.paymentMethod],isPaid: order?.isPaid ? 'TRUE' :'FALSE',isDelivered: order?.isDelivered ? 'TRUE' : 'FALSE', totalPrice: convertPrice(order?.totalPrice)}
+    return { ...order, key: order._id, userName: order?.shippingAddress?.fullName, phone: order?.shippingAddress?.phone, address: order?.shippingAddress?.address, paymentMethod: orderContant.payment[order?.paymentMethod], isPaid: order?.isPaid ? 'TRUE' : 'FALSE', isDelivered: order?.isDelivered ? 'TRUE' : 'FALSE', totalPrice: convertPrice(order?.totalPrice) }
   })
 
   return (
     <div>
       <WrapperHeader>Quản lý đơn hàng</WrapperHeader>
-      <div style={{height: 200, width:200}}>
+      <div style={{ height: 200, width: 200 }}>
         <PieChartComponent data={orders?.data} />
       </div>
       <div style={{ marginTop: '20px' }}>
-        <TableComponent  columns={columns} isLoading={isLoadingOrders} data={dataTable} />
+        <TableComponent columns={columns} isLoading={isLoadingOrders} data={dataTable} />
       </div>
     </div>
   )

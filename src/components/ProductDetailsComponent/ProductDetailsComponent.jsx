@@ -176,7 +176,7 @@ const ProductDetailsComponent = ({ idProduct }) => {
                         <WrapperStyleNameProduct>{productDetails?.name}</WrapperStyleNameProduct>
                         <div>
                             <Rate allowHalf defaultValue={productDetails?.rating} value={productDetails?.rating} />
-                            <WrapperStyleTextSell> | Da ban 1000+</WrapperStyleTextSell>
+
                         </div>
                         <WrapperPriceProduct>
                             <WrapperPriceTextProduct>{convertPrice(productDetails?.price)}</WrapperPriceTextProduct>
