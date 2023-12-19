@@ -186,7 +186,7 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
           <span>
             {
               user?.isAdmin ? (
-                <div onClick={() => navigate('/chatpageadmin')} style={{ cursor: 'pointer' }}>
+                <div onClick={() => navigate('/chatpage')} style={{ cursor: 'pointer' }}>
                   <WechatOutlined style={{ fontSize: '30px', color: '#fff' }} />
                   <WrapperTextHeaderSmall>Hỗ trợ</WrapperTextHeaderSmall>
                 </div>
