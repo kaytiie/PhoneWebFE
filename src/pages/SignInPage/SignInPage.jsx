@@ -107,9 +107,9 @@ const SignInPage = () => {
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0, 0, 0, 0.53)', height: '100vh' }}>
       <div style={{ width: '800px', height: '445px', borderRadius: '6px', background: '#fff', display: 'flex' }}>
         <WrapperContainerLeft>
-          <h1>Xin chào</h1>
-          <p>Đăng nhập vào tạo tài khoản</p>
-          <InputForm style={{ marginBottom: '10px' }} placeholder="abc@gmail.com" value={email} onChange={handleOnchangeEmail} />
+          <h1>Xin chào bạn!</h1>
+          <p>Đăng nhập tài khoản</p>
+          <InputForm style={{ marginBottom: '10px' }} placeholder="nhập tài khoản (abc@gmail.com)" value={email} onChange={handleOnchangeEmail} />
           <div style={{ position: 'relative' }}>
             <span
               onClick={() => setIsShowPassword(!isShowPassword)}
@@ -128,7 +128,7 @@ const SignInPage = () => {
               }
             </span>
             <InputForm
-              placeholder="password"
+              placeholder="nhập mật khẩu "
               type={isShowPassword ? "text" : "password"}
               value={password}
               onChange={handleOnchangePassword}
@@ -153,13 +153,13 @@ const SignInPage = () => {
             ></ButtonComponent>
           </Loading>
 
-          <p><WrapperTextLight>Quên mật khẩu?</WrapperTextLight></p>
-          <p>Chưa có tài khoản? <WrapperTextLight onClick={handleNavigateSignUp}> Tạo tài khoản</WrapperTextLight></p>
+          {/* <p><WrapperTextLight>Quên mật khẩu?</WrapperTextLight></p> */}
+          <p>Chưa có tài khoản? <WrapperTextLight onClick={handleNavigateSignUp}> Đăng ký</WrapperTextLight></p>
         </WrapperContainerLeft>
-        <WrapperContainerRight>
+        {/* <WrapperContainerRight>
           <Image src={imageLogo} preview={false} alt="iamge-logo" height="203px" width="203px" />
           <h4>Mua sắm tại LTTD</h4>
-        </WrapperContainerRight>
+        </WrapperContainerRight> */}
       </div>
       {/* Container để hiển thị thông báo */}
       {/* {showModal && <CustomModal message={modalMessage} />} */}

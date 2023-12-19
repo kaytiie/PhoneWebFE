@@ -51,7 +51,9 @@ const TableComponent = (props) => {
 
         </div>
       )}
-      <button onClick={exportExcel}>Export Excel</button>
+      <span>
+        <button style={{ backgroundColor: '#3887d1', cursor: 'pointer' }} onClick={exportExcel}>In danh sách ra file Excel</button>
+      </span>
       <Table
         rowSelection={{
           type: selectionType,

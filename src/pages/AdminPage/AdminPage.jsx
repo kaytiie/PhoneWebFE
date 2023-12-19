@@ -65,9 +65,9 @@ const AdminPage = () => {
     }
   }, [queries])
   const COLORS = {
-    users: ['#e66465', '#9198e5'],
-    products: ['#a8c0ff', '#3f2b96'],
-    orders: ['#11998e', '#38ef7d'],
+    users: ['#e66465', '#64b6e6'],
+    products: ['#6ee698', '#6ee698'],
+    orders: ['#dbe664', '#dbe664'],
   };
 
   const renderPage = (key) => {
@@ -92,7 +92,7 @@ const AdminPage = () => {
   const handleOnCLick = ({ key }) => {
     setKeySelected(key)
   }
-  console.log('memoCount', memoCount)
+  // console.log('memoCount', memoCount)
   return (
     <>
       <HeaderComponent isHiddenSearch isHiddenCart />

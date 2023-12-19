@@ -61,8 +61,8 @@ const SignUpPage = () => {
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0, 0, 0, 0.53)', height: '100vh' }}>
       <div style={{ width: '800px', height: '445px', borderRadius: '6px', background: '#fff', display: 'flex' }}>
         <WrapperContainerLeft>
-          <h1>Xin chào</h1>
-          <p>Đăng nhập vào tạo tài khoản</p>
+          <h1>Xin chào bạn!</h1>
+          <p>Đăng ký để tạo tài khoản mới</p>
           <InputForm style={{ marginBottom: '10px' }} placeholder="abc@gmail.com" value={email} onChange={handleOnchangeEmail} />
           <div style={{ position: 'relative' }}>
             <span
@@ -81,7 +81,7 @@ const SignUpPage = () => {
                 )
               }
             </span>
-            <InputForm placeholder="password" style={{ marginBottom: '10px' }} type={isShowPassword ? "text" : "password"}
+            <InputForm placeholder="nhập mật khẩu" style={{ marginBottom: '10px' }} type={isShowPassword ? "text" : "password"}
               value={password} onChange={handleOnchangePassword} />
           </div>
           <div style={{ position: 'relative' }}>
@@ -101,7 +101,7 @@ const SignUpPage = () => {
                 )
               }
             </span>
-            <InputForm placeholder="comfirm password" type={isShowConfirmPassword ? "text" : "password"}
+            <InputForm placeholder="nhập lại mật khẩu" type={isShowConfirmPassword ? "text" : "password"}
               value={confirmPassword} onChange={handleOnchangeConfirmPassword}
             />
           </div>
@@ -123,12 +123,12 @@ const SignUpPage = () => {
               styleTextButton={{ color: '#fff', fontSize: '15px', fontWeight: '700' }}
             ></ButtonComponent>
           </Loading>
-          <p>Bạn đã có tài khoản? <WrapperTextLight onClick={handleNavigateSignIn}> Đăng nhập</WrapperTextLight></p>
+          <p>Đã có tài khoản? <WrapperTextLight onClick={handleNavigateSignIn}> Đăng nhập </WrapperTextLight></p>
         </WrapperContainerLeft>
-        <WrapperContainerRight>
+        {/* <WrapperContainerRight>
           <Image src={imageLogo} preview={false} alt="iamge-logo" height="203px" width="203px" />
           <h4>Mua sắm tại LTTD</h4>
-        </WrapperContainerRight>
+        </WrapperContainerRight> */}
       </div>
     </div >
   )

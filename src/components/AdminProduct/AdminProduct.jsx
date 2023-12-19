@@ -48,7 +48,7 @@ const AdminProduct = () => {
         rating,
         image,
         type,
-        countInStock,discount } = data
+        countInStock, discount } = data
       const res = ProductService.createProduct({
         name,
         price,
@@ -121,9 +121,9 @@ const AdminProduct = () => {
   }
 
   useEffect(() => {
-    if(!isModalOpen) {
+    if (!isModalOpen) {
       form.setFieldsValue(stateProductDetails)
-    }else {
+    } else {
       form.setFieldsValue(inittial())
     }
   }, [form, stateProductDetails, isModalOpen])
@@ -164,8 +164,8 @@ const AdminProduct = () => {
   const renderAction = () => {
     return (
       <div>
-        <DeleteOutlined style={{ color: 'red', fontSize: '30px', cursor: 'pointer' }} onClick={() => setIsModalOpenDelete(true)} />
-        <EditOutlined style={{ color: 'orange', fontSize: '30px', cursor: 'pointer' }} onClick={handleDetailsProduct} />
+        <DeleteOutlined style={{ color: '#4ea6ed', fontSize: '30px', cursor: 'pointer' }} onClick={() => setIsModalOpenDelete(true)} />
+        <EditOutlined style={{ color: '#38d178', fontSize: '30px', cursor: 'pointer' }} onClick={handleDetailsProduct} />
       </div>
     )
   }
@@ -257,13 +257,13 @@ const AdminProduct = () => {
 
   const columns = [
     {
-      title: 'Name',
+      title: 'Tên sản phẩm',
       dataIndex: 'name',
       sorter: (a, b) => a.name.length - b.name.length,
       ...getColumnSearchProps('name')
     },
     {
-      title: 'Price',
+      title: 'Giá ',
       dataIndex: 'price',
       sorter: (a, b) => a.price - b.price,
       filters: [
@@ -284,7 +284,7 @@ const AdminProduct = () => {
       },
     },
     {
-      title: 'Rating',
+      title: 'Đánh giá',
       dataIndex: 'rating',
       sorter: (a, b) => a.rating - b.rating,
       filters: [
@@ -305,11 +305,11 @@ const AdminProduct = () => {
       },
     },
     {
-      title: 'Type',
+      title: 'Loại sản phẩm',
       dataIndex: 'type',
     },
     {
-      title: 'Action',
+      title: 'Tùy chỉnh',
       dataIndex: 'action',
       render: renderAction
     },
@@ -457,17 +457,17 @@ const AdminProduct = () => {
   }
 
   const handleChangeSelect = (value) => {
-      setStateProduct({
-        ...stateProduct,
-        type: value
-      })
+    setStateProduct({
+      ...stateProduct,
+      type: value
+    })
   }
 
   return (
     <div>
       <WrapperHeader>Quản lý sản phẩm</WrapperHeader>
       <div style={{ marginTop: '10px' }}>
-        <Button style={{ height: '150px', width: '150px', borderRadius: '6px', borderStyle: 'dashed' }} onClick={() => setIsModalOpen(true)}><PlusOutlined style={{ fontSize: '60px' }} /></Button>
+        <Button style={{ height: '70px', width: '80px', borderRadius: '6px', borderStyle: 'dashed' }} onClick={() => setIsModalOpen(true)}><PlusOutlined style={{ fontSize: '60px' }} /></Button>
       </div>
       <div style={{ marginTop: '20px' }}>
         <TableComponent handleDelteMany={handleDelteManyProducts} columns={columns} isLoading={isLoadingProducts} data={dataTable} onRow={(record, rowIndex) => {
@@ -478,7 +478,7 @@ const AdminProduct = () => {
           };
         }} />
       </div>
-      <ModalComponent forceRender title="Tạo sản phẩm" open={isModalOpen} onCancel={handleCancel} footer={null}>
+      <ModalComponent forceRender title="Tạo sản phẩm mới" open={isModalOpen} onCancel={handleCancel} footer={null}>
         <Loading isLoading={isLoading}>
 
           <Form
@@ -490,17 +490,17 @@ const AdminProduct = () => {
             form={form}
           >
             <Form.Item
-              label="Name"
+              label="Tên sản phẩm"
               name="name"
-              rules={[{ required: true, message: 'Please input your name!' }]}
+              rules={[{ required: true, message: 'Hãy nhập tên sản phẩm!' }]}
             >
               <InputComponent value={stateProduct['name']} onChange={handleOnchange} name="name" />
             </Form.Item>
 
             <Form.Item
-              label="Type"
+              label="Loại"
               name="type"
-              rules={[{ required: true, message: 'Please input your type!' }]}
+              rules={[{ required: true, message: 'Hãy nhập loại sản phẩm!' }]}
             >
               <Select
                 name="type"
@@ -509,59 +509,59 @@ const AdminProduct = () => {
                 value={stateProduct.type}
                 onChange={handleChangeSelect}
                 options={renderOptions(typeProduct?.data?.data)}
-                />
+              />
             </Form.Item>
             {stateProduct.type === 'add_type' && (
               <Form.Item
-                label='New type'
+                label='Thêm loại'
                 name="newType"
-                rules={[{ required: true, message: 'Please input your type!' }]}
+                rules={[{ required: true, message: 'Hãy nhập loại sản phẩm' }]}
               >
                 <InputComponent value={stateProduct.newType} onChange={handleOnchange} name="newType" />
               </Form.Item>
             )}
             <Form.Item
-              label="Count inStock"
+              label="Số lượng"
               name="countInStock"
-              rules={[{ required: true, message: 'Please input your count inStock!' }]}
+              rules={[{ required: true, message: 'Hãy nhập số lượng!' }]}
             >
               <InputComponent value={stateProduct.countInStock} onChange={handleOnchange} name="countInStock" />
             </Form.Item>
             <Form.Item
-              label="Price"
+              label="Giá"
               name="price"
-              rules={[{ required: true, message: 'Please input your count price!' }]}
+              rules={[{ required: true, message: 'Hãy nhập giá!' }]}
             >
               <InputComponent value={stateProduct.price} onChange={handleOnchange} name="price" />
             </Form.Item>
             <Form.Item
-              label="Description"
+              label="Mô tả sản phẩm"
               name="description"
-              rules={[{ required: true, message: 'Please input your count description!' }]}
+              rules={[{ required: true, message: 'Hãy nhập mô tả!' }]}
             >
               <InputComponent value={stateProduct.description} onChange={handleOnchange} name="description" />
             </Form.Item>
             <Form.Item
-              label="Rating"
+              label="Đánh giá"
               name="rating"
-              rules={[{ required: true, message: 'Please input your count rating!' }]}
+              rules={[{ required: true, message: 'Hãy nhập đánh giá!' }]}
             >
               <InputComponent value={stateProduct.rating} onChange={handleOnchange} name="rating" />
             </Form.Item>
             <Form.Item
-              label="Discount"
+              label="Giảm giá ( % )"
               name="discount"
-              rules={[{ required: true, message: 'Please input your discount of product!' }]}
+              rules={[{ required: true, message: 'Hãy nhập phần trăm giảm giá!' }]}
             >
               <InputComponent value={stateProduct.discount} onChange={handleOnchange} name="discount" />
             </Form.Item>
             <Form.Item
-              label="Image"
+              label="Ảnh"
               name="image"
-              rules={[{ required: true, message: 'Please input your count image!' }]}
+              rules={[{ required: true, message: 'Hãy chọn ảnh!' }]}
             >
               <WrapperUploadFile onChange={handleOnchangeAvatar} maxCount={1}>
-                <Button >Select File</Button>
+                <Button >Chọn ảnh</Button>
                 {stateProduct?.image && (
                   <img src={stateProduct?.image} style={{
                     height: '60px',
@@ -575,7 +575,7 @@ const AdminProduct = () => {
             </Form.Item>
             <Form.Item wrapperCol={{ offset: 20, span: 16 }}>
               <Button type="primary" htmlType="submit">
-                Submit
+                Xác nhận
               </Button>
             </Form.Item>
           </Form>
