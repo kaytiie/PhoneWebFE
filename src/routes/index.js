@@ -7,7 +7,7 @@ import Promotion from "../pages/KhuyenmaiPage/Promotion";
 import MyOrderPage from "../pages/MyOrder/MyOrder";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
-import OrderSucess from "../pages/OrderSuccess/OrderSuccess";
+import OrderSuccess from "../pages/OrderSuccess/OrderSuccess";
 import PaymentPage from "../pages/PaymentPage/PaymentPage";
 import ProductDetailsPage from "../pages/ProductDetailsPage/ProductDetailsPage";
 import ProductsPage from "../pages/ProductsPage/ProductsPage";
@@ -15,6 +15,8 @@ import ProfilePage from "../pages/Profile/ProfilePage";
 import SignInPage from "../pages/SignInPage/SignInPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
 import TypeProductPage from "../pages/TypeProductPage/TypeProductPage";
+import ForgotPasswordPage from '../pages/ForgotPasswordPage/ForgotPasswordPage'
+import ResetPasswordPage from '../pages/ResetPasswordPage/ResetPasswordPage'
 
 export const routes = [
     {
@@ -44,7 +46,7 @@ export const routes = [
     },
     {
         path: '/orderSuccess',
-        page: OrderSucess,
+        page: OrderSuccess,
         isShowHeader: true
     },
     {
@@ -65,6 +67,16 @@ export const routes = [
     {
         path: '/sign-up',
         page: SignUpPage,
+        isShowHeader: false
+    },
+    {
+        path: '/forgot-password',
+        page: ForgotPasswordPage,
+        isShowHeader: false
+    },
+    {
+        path: '/api/user/reset-password/:resetToken',
+        page: ResetPasswordPage,
         isShowHeader: false
     },
     {

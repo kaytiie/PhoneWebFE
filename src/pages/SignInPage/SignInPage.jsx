@@ -81,6 +81,10 @@ const SignInPage = () => {
     navigate('/sign-up')
   }
 
+  const handleForgotPassword = () => {
+    navigate("/forgot-password");
+  };
+
   const handleOnchangeEmail = (value) => {
     setEmail(value)
   }
@@ -152,8 +156,9 @@ const SignInPage = () => {
               styleTextButton={{ color: '#fff', fontSize: '15px', fontWeight: '700' }}
             ></ButtonComponent>
           </Loading>
-
-          {/* <p><WrapperTextLight>Quên mật khẩu?</WrapperTextLight></p> */}
+          
+          {/* <p onClick={handleForgotPassword} style={{ color: "blue", cursor: "pointer" }}> Quên mật khẩu</p> */}
+          <p><WrapperTextLight onClick={handleForgotPassword} style={{ color: "blue", cursor: "pointer" }}>Quên mật khẩu?</WrapperTextLight></p> 
           <p>Chưa có tài khoản? <WrapperTextLight onClick={handleNavigateSignUp}> Đăng ký</WrapperTextLight></p>
         </WrapperContainerLeft>
         {/* <WrapperContainerRight>
