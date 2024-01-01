@@ -47,6 +47,7 @@ const Button = styled.button`
   background-color: #4caf50;
   color: white;
   cursor: pointer;
+  margin: auto;
 `;
 
 const PostNews = () => {

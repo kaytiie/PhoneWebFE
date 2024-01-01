@@ -467,7 +467,7 @@ const AdminProduct = () => {
     <div>
       <WrapperHeader>Quản lý sản phẩm</WrapperHeader>
       <div style={{ marginTop: '10px' }}>
-        <Button style={{ height: '70px', width: '80px', borderRadius: '6px', borderStyle: 'dashed' }} onClick={() => setIsModalOpen(true)}><PlusOutlined style={{ fontSize: '60px' }} /></Button>
+        <Button style={{ height: '70px', borderRadius: '6px', borderStyle: 'dashed' }} onClick={() => setIsModalOpen(true)}><PlusOutlined style={{ fontSize: '60px' }} /></Button>
       </div>
       <div style={{ marginTop: '20px' }}>
         <TableComponent handleDelteMany={handleDelteManyProducts} columns={columns} isLoading={isLoadingProducts} data={dataTable} onRow={(record, rowIndex) => {
