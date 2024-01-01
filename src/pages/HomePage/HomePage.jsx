@@ -13,6 +13,7 @@ import { useState } from 'react'
 import Loading from '../../components/LoadingComponent/Loading'
 import { useDebounce } from '../../hooks/useDebounce'
 import { useEffect } from 'react'
+import Footer from '../Footer/Footer'
 
 const HomePage = () => {
   const searchProduct = useSelector((state) => state?.product?.search)
@@ -55,7 +56,7 @@ const HomePage = () => {
         </WrapperTypeProduct>
       </div>
       <div className='body' style={{ width: '100%', backgroundColor: '#efefef', }}>
-        <div id="container" style={{ height: '1000px', width: '1270px', margin: '0 auto' }}>
+        <div id="container" style={{ width: '1270px', margin: '0 auto 15px auto' }}>
           <SliderComponent arrImages={[slider1, slider2, slider3]} />
           <WrapperProducts>
             {products?.data?.map((product) => {
@@ -80,7 +81,7 @@ const HomePage = () => {
             <WrapperButtonMore
               textbutton={isPreviousData ? 'Load more' : "Xem thêm"} type="outline" styleButton={{
                 border: `1px solid ${products?.total === products?.data?.length ? '#f5f5f5' : '#9255FD'}`, color: `${products?.total === products?.data?.length ? '#f5f5f5' : '#9255FD'}`,
-                width: '240px', height: '38px', borderRadius: '4px'
+                width: '240px', height: '38px', borderRadius: '4px', margin: '0 0 10px 0'
               }}
               disabled={products?.total === products?.data?.length || products?.totalPage === 1}
               styleTextButton={{ fontWeight: 500, color: products?.total === products?.data?.length && '#fff' }}
@@ -89,6 +90,11 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <div >
+      <Footer>
+
+      </Footer>
+    </div>
     </Loading>
   )
 }

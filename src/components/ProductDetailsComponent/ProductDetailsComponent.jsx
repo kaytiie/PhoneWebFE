@@ -143,7 +143,7 @@ const ProductDetailsComponent = ({ idProduct }) => {
     return (
         <div>
             <Loading isLoading={isLoading}>
-                <Row style={{ padding: '16px', background: '#fff', borderRadius: '4px', height: '100%' }}>
+                <Row style={{ padding: '16px', background: '#fff', borderRadius: '4px', height: '100%', marginBottom: '20px' }}>
                     <Col span={10} style={{ borderRight: '1px solid #e5e5e5', paddingRight: '8px' }}>
                         <Image src={productDetails?.image} alt="image prodcut" preview={false} />
                         {/* <Row style={{ paddingTop: '10px', justifyContent: 'space-between' }}>

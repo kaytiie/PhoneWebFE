@@ -66,13 +66,17 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
   };
   const content = (
     <div>
-      <WrapperContentPopup onClick={() => handleClickNavigate('profile')}>Trang cá nhân</WrapperContentPopup>
+      <WrapperContentPopup onClick={() => handleClickNavigate('profile')} >Thông tin người dùng</WrapperContentPopup>
       {user?.isAdmin && (
-
+        
         <WrapperContentPopup onClick={() => handleClickNavigate('admin')}>Quản lí hệ thống</WrapperContentPopup>
-      )}
-      <WrapperContentPopup onClick={() => handleClickNavigate(`my-order`)}>Đơn hàng của tôi</WrapperContentPopup>
+        )}
+        {!user?.isAdmin && (
+          <WrapperContentPopup onClick={() => handleClickNavigate(`my-order`)}>Đơn hàng của tôi</WrapperContentPopup>
+
+        )}
       <WrapperContentPopup onClick={() => handleClickNavigate()}>Đăng xuất</WrapperContentPopup>
+
     </div>
   );
 
@@ -157,32 +161,21 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
               )}
             </WrapperHeaderAccout>
           </Loading>
-          {user?.access_token ? (
-            <span>
-              {!isHiddenCart && (
-                <div onClick={() => navigate('/order')} style={{ cursor: 'pointer' }}>
-                  <Badge count={order?.orderItems?.length} size="small">
-                    <ShoppingCartOutlined style={{ fontSize: '30px', color: '#fff' }} />
-                  </Badge>
-                  <WrapperTextHeaderSmall>Giỏ hàng</WrapperTextHeaderSmall>
-                </div>
-              )}
-
-            </span>
+          {!isHiddenCart && user?.access_token ? (
+            <div onClick={() => user?.isAdmin ? navigate('/system/admin') : navigate('/order')} style={{ cursor: 'pointer' }}>
+              <Badge count={order?.orderItems?.length} size="small">
+                <ShoppingCartOutlined style={{ color: 'white', fontSize: '30px' }} />
+              </Badge>
+              <WrapperTextHeaderSmall>Giỏ hàng</WrapperTextHeaderSmall>
+            </div>
           ) : (
-            <span>
-              {!isHiddenCart && (
-                <div onClick={() => navigate('/sign-in')} style={{ cursor: 'pointer' }}>
-                  <Badge count={order?.orderItems?.length} size="small">
-                    <ShoppingCartOutlined style={{ fontSize: '30px', color: '#fff' }} />
-                  </Badge>
-                  <WrapperTextHeaderSmall>Giỏ hàng</WrapperTextHeaderSmall>
-                </div>
-              )}
-
-            </span>
-          )
-          }
+            <div onClick={() => navigate('/sign-in')} style={{ cursor: 'pointer' }}>
+              <Badge count={0} size="small">
+                <ShoppingCartOutlined style={{ color: 'white', fontSize: '30px' }} />
+              </Badge>
+              <WrapperTextHeaderSmall>Giỏ hàng</WrapperTextHeaderSmall>
+            </div>
+          )}
           <span>
             {
               user?.isAdmin ? (
