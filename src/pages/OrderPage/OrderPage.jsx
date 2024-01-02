@@ -114,7 +114,7 @@ const OrderPage = () => {
   }, [order])
 
   const diliveryPriceMemo = useMemo(() => {
-    if (priceMemo >= 20000 && priceMemo < 500000) {
+    if (priceMemo >= 200000 && priceMemo < 500000) {
       return 10000
     } else if (priceMemo >= 500000 || order?.orderItemsSlected?.length === 0) {
       return 0
@@ -348,4 +348,3 @@ const OrderPage = () => {
 }
 
 export default OrderPage
-

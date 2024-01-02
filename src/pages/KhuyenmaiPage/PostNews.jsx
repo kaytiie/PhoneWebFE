@@ -7,6 +7,7 @@ const Container = styled.div`
   background-color: #f2f2f2;
   margin: 0;
   padding: 0;
+  height: 1000px;
 `;
 
 const Header = styled.header`

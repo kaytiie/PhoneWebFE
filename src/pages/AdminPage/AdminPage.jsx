@@ -102,12 +102,12 @@ const AdminPage = () => {
           style={{
             width: 256,
             boxShadow: '1px 1px 2px #ccc',
-            height: '100vh'
+            height: '700px'
           }}
           items={items}
           onClick={handleOnCLick}
         />
-        <div style={{ flex: 1, padding: '15px 0 15px 15px' }}>
+        <div style={{ flex: 1, padding: '15px 15px 15px 15px' }}>
           <Loading isLoading={memoCount && Object.keys(memoCount) && Object.keys(memoCount).length !== 3}>
             {!keySelected && (
               <CustomizedContent data={memoCount} colors={COLORS} setKeySelected={setKeySelected} />

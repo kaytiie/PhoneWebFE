@@ -17,7 +17,8 @@ const CustomizedContent = (props) => {
               justifyContent: 'center',
               alignItems: 'center',
               borderRadius: '10px',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              margin: '10px',
             }}
             onClick={() => setKeySelected(item)}
           >
